@@ -14,23 +14,14 @@ The dataset used for training and testing is sourced from the 'My Dataset' direc
 
 # Dependencies
 Make sure to install the necessary dependencies before running the code:
+pandas 
+numpy                  
+matplotlib                    
+tensorflow                         
+opencv-python                        
+keras               
+scikit-learn
 
-bash
-Copy code
-pip install pandas numpy matplotlib tensorflow opencv-python keras scikit-learn
-Usage
-Clone the repository:
-bash
-Copy code
-git clone https://github.com/yourusername/pothole-detection-system.git
-Navigate to the project directory:
-bash
-Copy code
-cd pothole-detection-system
-Run the code:
-bash
-Copy code
-python pothole_detection.py
 # Model Evaluation
 The system provides model evaluation metrics, including accuracy, after training the models on the provided datasets.
 
