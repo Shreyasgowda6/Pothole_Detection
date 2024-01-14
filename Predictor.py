@@ -7,43 +7,38 @@ from sklearn.preprocessing import LabelBinarizer
 from sklearn.model_selection import train_test_split
 from keras.utils import to_categorical
 
-
 global size
 size = 100
 model = Sequential()
-model = load_model(
-    r"C:\Users\Somashekar\OneDrive\Desktop\ideation\pothole-detection-system-using-convolution-neural-networks\sample.h5"
-)
+# Update the path link to the default path on your computer
+model = load_model(r"Default\Path\To\Your\Model\sample.h5")
 
 
 # X_test = np.load('./models/trainData/128x72x3x10000/X_test.npy')
 # y_test = np.load('./models/trainData/128x72x3x10000/y_test.npy')
 
 ## load Testing data : non-pothole
-nonPotholeTestImages = glob.glob(
-    r"C:\Users\Somashekar\OneDrive\Desktop\ideation\pothole-detection-system-using-convolution-neural-networks\My Dataset\test\Plain/*.jpg"
-)
+nonPotholeTestImages = glob.glob(r"Default\Path\To\Your\Dataset\test\Plain/*.jpg")
+
 # nonPotholeTrainImages.extend(glob.glob("C:/Users/anant/Desktop/pothole-and-plain-rode-images/My Dataset/train/Plain/*.jpeg"))
 # nonPotholeTrainImages.extend(glob.glob("C:/Users/anant/Desktop/pothole-and-plain-rode-images/My Dataset/train/Plain/*.png"))
+
 test2 = [cv2.imread(img, 0) for img in nonPotholeTestImages]
-# train2[train2 != np.array(None)]
 for i in range(0, len(test2)):
     test2[i] = cv2.resize(test2[i], (size, size))
 temp4 = np.asarray(test2)
 
-
 ## load Testing data : potholes
-potholeTestImages = glob.glob(
-    r"C:\Users\Somashekar\OneDrive\Desktop\ideation\pothole-detection-system-using-convolution-neural-networks\My Dataset\test\Pothole/*.jpg"
-)
+potholeTestImages = glob.glob(r"Default\Path\To\Your\Dataset\test\Pothole/*.jpg")
+
 # nonPotholeTrainImages.extend(glob.glob("C:/Users/anant/Desktop/pothole-and-plain-rode-images/My Dataset/train/Plain/*.jpeg"))
 # nonPotholeTrainImages.extend(glob.glob("C:/Users/anant/Desktop/pothole-and-plain-rode-images/My Dataset/train/Plain/*.png"))
+
+
 test1 = [cv2.imread(img, 0) for img in potholeTestImages]
-# train2[train2 != np.array(None)]
 for i in range(0, len(test1)):
     test1[i] = cv2.resize(test1[i], (size, size))
 temp3 = np.asarray(test1)
-
 
 X_test = []
 X_test.extend(temp3)
@@ -51,7 +46,6 @@ X_test.extend(temp4)
 X_test = np.asarray(X_test)
 
 X_test = X_test.reshape(X_test.shape[0], size, size, 1)
-
 
 y_test1 = np.ones([temp3.shape[0]], dtype=int)
 y_test2 = np.zeros([temp4.shape[0]], dtype=int)
@@ -63,14 +57,14 @@ y_test = np.asarray(y_test)
 
 y_test = to_categorical(y_test)
 
-
 predicted_probabilities = model.predict(X_test)
 for i in range(len(X_test)):
     print(">>> Predicted=%s" % (predicted_probabilities[i]))
-
 
 # metrics = model.evaluate(X_test, y_test)
 # for metric_i in range(len(model.metrics_names)):
 #     metric_name = model.metrics_names[metric_i]
 #     metric_value = metrics[metric_i]
 #     print('{}: {}'.format(metric_name, metric_value))
+
+
