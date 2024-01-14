@@ -44,17 +44,15 @@ def kerasModel4():
 
 size = 100
 potholeTrainImages = glob.glob(
-    r"C:\Users\Somashekar\OneDrive\Desktop\ideation\pothole-detection-system-using-convolution-neural-networks\My Dataset\train\Pothole\*.jpg"
+    r"Default\Path\To\Your\Dataset\test\Pothole\*.jpeg"
 )
 potholeTrainImages.extend(
     glob.glob(
-        r"C:\Users\Somashekar\OneDrive\Desktop\ideation\pothole-detection-system-using-convolution-neural-networks\My Dataset\train\Pothole\*.jpeg"
-    )
+        r"Default\Path\To\Your\Dataset\test\Pothole\*.jpeg" )
 )
 potholeTrainImages.extend(
     glob.glob(
-        r"C:\Users\Somashekar\OneDrive\Desktop\ideation\pothole-detection-system-using-convolution-neural-networks\My Dataset\train\Pothole\*.png"
-    )
+      r"Default\Path\To\Your\Dataset\test\Pothole\*.jpeg" )
 )
 
 # Similarly update the other file paths for nonPotholeTrainImages, nonPotholeTestImages, and potholeTestImages
@@ -70,10 +68,9 @@ temp1 = np.asarray(train1)
 
 #  ## load Training data : non-pothole
 nonPotholeTrainImages = glob.glob(
-    r"C:\Users\Somashekar\OneDrive\Desktop\ideation\pothole-detection-system-using-convolution-neural-networks\My Dataset\train\Plain/*.jpg"
-)
-# nonPotholeTrainImages.extend(glob.glob("C:/Users/anant/Desktop/pothole-and-plain-rode-images/My Dataset/train/Plain/*.jpeg"))
-# nonPotholeTrainImages.extend(glob.glob("C:/Users/anant/Desktop/pothole-and-plain-rode-images/My Dataset/train/Plain/*.png"))
+    r"Default\Path\To\Your\Dataset\test\Pothole\*.jpeg")
+# nonPotholeTrainImages.extend(glob.glob("r"Default\Path\To\Your\Dataset\test\Pothole\*.jpeg""))
+# nonPotholeTrainImages.extend(glob.glob("r"Default\Path\To\Your\Dataset\test\Pothole\*.jpeg""))
 train2 = [cv2.imread(img, 0) for img in nonPotholeTrainImages]
 # train2[train2 != np.array(None)]
 for i in range(0, len(train2)):
@@ -83,10 +80,9 @@ temp2 = np.asarray(train2)
 
 ## load Testing data : non-pothole
 nonPotholeTestImages = glob.glob(
-    r"C:\Users\Somashekar\OneDrive\Desktop\ideation\pothole-detection-system-using-convolution-neural-networks\My Dataset\test\Plain/*.jpg"
-)
-# nonPotholeTrainImages.extend(glob.glob("C:/Users/anant/Desktop/pothole-and-plain-rode-images/My Dataset/train/Plain/*.jpeg"))
-# nonPotholeTrainImages.extend(glob.glob("C:/Users/anant/Desktop/pothole-and-plain-rode-images/My Dataset/train/Plain/*.png"))
+    r"Default\Path\To\Your\Dataset\test\Pothole\*.jpeg")
+# nonPotholeTrainImages.extend(glob.glob(r"Default\Path\To\Your\Dataset\test\Pothole\*.jpeg"))
+# nonPotholeTrainImages.extend(glob.glob(r"Default\Path\To\Your\Dataset\test\Pothole\*.jpeg"))
 test2 = [cv2.imread(img, 0) for img in nonPotholeTestImages]
 # train2[train2 != np.array(None)]
 for i in range(0, len(test2)):
@@ -96,10 +92,9 @@ temp4 = np.asarray(test2)
 
 ## load Testing data : potholes
 potholeTestImages = glob.glob(
-    r"C:\Users\Somashekar\OneDrive\Desktop\ideation\pothole-detection-system-using-convolution-neural-networks\My Dataset\test\Pothole/*.jpg"
-)
-# nonPotholeTrainImages.extend(glob.glob("C:/Users/anant/Desktop/pothole-and-plain-rode-images/My Dataset/train/Plain/*.jpeg"))
-# nonPotholeTrainImages.extend(glob.glob("C:/Users/anant/Desktop/pothole-and-plain-rode-images/My Dataset/train/Plain/*.png"))
+    r"Default\Path\To\Your\Dataset\test\Pothole\*.jpeg")
+# nonPotholeTrainImages.extend(glob.glob(r"Default\Path\To\Your\Dataset\test\Pothole\*.jpeg"))
+# nonPotholeTrainImages.extend(glob.glob(r"Default\Path\To\Your\Dataset\test\Pothole\*.jpeg"))
 test1 = [cv2.imread(img, 0) for img in potholeTestImages]
 # train2[train2 != np.array(None)]
 for i in range(0, len(test1)):
